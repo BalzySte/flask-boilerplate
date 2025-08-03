@@ -1,0 +1,22 @@
+[
+	{
+		"_id": "65a1b2c3d4e5f6789abcdef1",
+		"user": "61d2db4ae433c7f4de2383f8",
+		"task_id": "12345678-90ab-cdef-1234-567890abcdef",
+		"status": "completed",
+		"created_at": {
+			"$date": "2024-01-15T10:30:00.000Z"
+		},
+		"completed_at": {
+			"$date": "2024-01-15T10:35:42.123Z"
+		},
+		"result_data": {
+			"processed_items": 150,
+			"success_count": 148,
+			"error_count": 2,
+			"total_time_seconds": 342.123,
+			"output_file": "report_20240115_103542.pdf"
+		},
+		"error_message": null
+	}
+]

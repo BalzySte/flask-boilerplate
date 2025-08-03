@@ -1,0 +1,35 @@
+summary: Login with a legacy phone-number/password account
+
+requestBody:
+  required: true
+  description: Phone login credentials
+  content:
+    application/json:
+      schema:
+        $ref: '/docs/schemas/login.json'
+
+responses:
+  200:
+    description: Successful login
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/User'
+
+  404:
+    description: User not found
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            msg:
+              type: string
+              const: "User not found"
+
+components:
+  schemas:
+
+    User:
+      type: object
+      description: User object

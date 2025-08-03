@@ -1,0 +1,81 @@
+summary: Get a list of users
+
+requestBody:
+  required: false
+
+responses:
+  200:
+    description: Successful retrieval of users
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            users:
+              type: array
+              items:
+                type: object
+                properties:
+                  _id:
+                    type: string
+                  ucc:
+                    type: string
+                  full_name:
+                    type: string
+                  phone_number:
+                    type: string
+                  backtestTotalCount:
+                    type: integer
+                  backtestCount:
+                    type: integer
+                  backtestQuota:
+                    type: integer
+                  role:
+                    type: string
+                  status:
+                    type: string
+            page_count:
+              type: integer
+              nullable: true
+            total_active_users:
+              type: integer
+              nullable: true
+
+  401:
+    description: Unauthorized
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            msg:
+              type: string
+              const: "Missing Authorization Header"
+
+  403:
+    description: Forbidden
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            msg:
+              type: string
+              const: "Admin privileges required"
+
+  500:
+    description: Internal Server Error
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            msg:
+              type: string
+              const: "Internal Server Error"
+
+components:
+  schemas:
+    User:
+      type: object
+      description: User object

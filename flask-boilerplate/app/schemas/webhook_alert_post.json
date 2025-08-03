@@ -1,0 +1,15 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema",
+	"$id": "webhook_alert_post.json",
+	"type": "object",
+	"additionalProperties": false,
+	"required": ["access_token", "alert_name"],
+	"properties": {
+		"access_token": {
+			"type": "string"
+		},
+		"alert_name": {
+			"type": "string"
+		}
+	}
+}

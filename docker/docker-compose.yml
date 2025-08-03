@@ -1,0 +1,87 @@
+services:
+    api:
+        build: ../.
+        volumes:
+            - ../flask-boilerplate/:/usr/src/app/
+        ports:
+            - 5000:5000
+        env_file:
+            - webapp.env
+        restart: on-failure
+        depends_on:
+            - mongodb
+            - redis
+            - celery
+            - rabbitmq
+
+    websocket:
+        build: ../.
+        platform: linux/amd64
+        volumes:
+            - ../flask-boilerplate/:/usr/src/app/
+        command: python3 websocket.py
+        restart: unless-stopped
+        env_file:
+            - webapp.env
+        ports:
+            - 5001:5000
+        depends_on:
+            - mongodb
+            - redis
+            - rabbitmq
+
+    mongodb:
+        image: mongo:6.0.16
+        command: ["--replSet", "rs0", "--bind_ip_all"]
+        ports:
+            - 27019:27019
+            - 27017:27017
+        volumes:
+            - mongodb_data:/data/db
+            - ./replica-init.js:/docker-entrypoint-initdb.d/replica-init.js
+        env_file:
+            - mongodb.env
+
+    redis:
+        image: redis/redis-stack:7.4.0-v0
+        ports:
+            - 6379:6379
+
+    rabbitmq:
+        image: rabbitmq:3.13-management-alpine
+        ports:
+            - 5672:5672
+            - 15672:15672
+
+    celery:
+        build: ../.
+        volumes:
+            - ../flask-boilerplate/:/usr/src/app/
+        env_file:
+            - webapp.env
+        restart: on-failure
+        command: celery -A celery_worker.celery worker -Q celery,report --concurrency 4 --loglevel=info
+        depends_on:
+            - mongodb
+            - redis
+            - rabbitmq
+
+    beat:
+        build: ../.
+        volumes:
+            - ../flask-boilerplate/:/usr/src/app/
+            - beat_data:/var/db/beat/
+        env_file:
+            - webapp.env
+        restart: on-failure
+        command: celery -A celery_worker.celery beat -s /var/db/beat/celerybeat-schedule --loglevel=info
+        depends_on:
+            - mongodb
+            - redis
+
+volumes:
+    mongodb_data:
+    beat_data:
+
+networks:
+    default:

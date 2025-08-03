@@ -1,0 +1,12 @@
+[
+	{
+		"_id": "65a3d4e5f6789abcdef01234",
+		"user": "61d2fb409606db54d47d15c3",
+		"user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+		"time": {
+			"$date": "2024-01-16T14:25:18.567Z"
+		},
+		"endpoint": "event.rabbitmq_event_post",
+		"error": "Invalid event type 'unknown-event'. Must be one of: ['a-simple-event', 'a-complex-event']"
+	}
+]

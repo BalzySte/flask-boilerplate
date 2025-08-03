@@ -1,0 +1,21 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema",
+	"$id": "user_put.json",
+	"type": "object",
+	"title": "/user/contacts POST endpoint schema",
+	"required": [],
+	"properties": {
+		"email": {
+			"type": ["string"],
+			"maxLength": 254,
+			"pattern": "^([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\\.[A-Z|a-z]{2,})+$"
+		},
+		"telegram": {
+			"type": ["string"],
+			"minLength": 5,
+			"maxLength": 32,
+			"pattern": "^[A-Za-z]{1}[a-zA-Z0-9_]{4,31}$"
+		}
+	},
+	"additionalProperties": false
+}

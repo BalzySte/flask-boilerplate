@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "report_post.json",
+  "title": "Report POST Schema",
+  "description": "Schema for submitting a report generation request",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "object",
+      "description": "Optional data for report generation",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}

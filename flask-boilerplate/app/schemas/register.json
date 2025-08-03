@@ -1,0 +1,25 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema",
+	"$id": "register.json",
+	"type": "object",
+	"title": "/register endpoint schema",
+	"required": ["phone_number", "password", "first_name", "last_name"],
+	"properties": {
+		"phone_number": {
+			"$ref": "common.json#/definitions/phone_number"
+		},
+		"password": {
+			"type": "string",
+			"title": "User password"
+		},
+		"first_name": {
+			"type": "string",
+			"title": "User first name"
+		},
+		"last_name": {
+			"type": "string",
+			"title": "User last name"
+		}
+	},
+	"additionalProperties": false
+}

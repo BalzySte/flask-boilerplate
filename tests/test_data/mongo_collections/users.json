@@ -1,0 +1,75 @@
+[
+	{
+		"_id": "61d2db4ae433c7f4de2383f8",
+		"phone_number": "+19870000001",
+		"password": {
+			"$binary": "JDJiJDEyJHdTaTI1Smp6QlZTSk5zdlNXdWx0OC5NSTFnVk5kU3BPS2c0cmtYY1JYUC9qMFJxcm9vRGQ2",
+			"$type": "00"
+		},
+		"access_token": "randomAccessToken123456789012345678901234567890ab",
+		"role": "admin",
+		"status": "active",
+		"details": {
+			"first_name": "John",
+			"last_name": "Doe",
+			"date_of_birth": {
+				"$date": "1985-07-15T00:00:00.000Z"
+			}
+		},
+		"profile_picture": null,
+		"contacts": {
+			"email": null,
+			"telegram": null
+		},
+		"signup_date": {
+			"$date": "2022-01-07T09:42:18.765Z"
+		},
+		"last_login": {
+			"$date": "2023-12-18T14:28:45.892Z"
+		},
+		"balance": {
+			"amount": 1000,
+			"last_topup": {
+				"$date": "2023-12-01T14:20:10.789Z"
+			}
+		}
+	},
+	{
+		"_id": "61d2fb409606db54d47d15c3",
+		"phone_number": "+19870000002",
+		"password": {
+			"$binary": "JDJiJDEyJE5lSk5rOU1veFYzU0tjM3JGZXpHL09WY0dyL0NJY3NOZFlTTzZCYmhDR1N2blY2WWhRU3JP",
+			"$type": "00"
+		},
+		"access_token": "randomAccessToken987654321098765432109876543210cd",
+		"role": "user",
+		"status": "active",
+		"details": {
+			"first_name": "Mike",
+			"last_name": "Adams",
+			"date_of_birth": {
+				"$date": "1992-03-22T00:00:00.000Z"
+			}
+		},
+		"profile_picture": null,
+		"contacts": {
+			"email": {
+				"contact": "mike.adams@example.com"
+			},
+			"telegram": {
+				"contact": "mikeadams",
+				"chat_id": "123456789"
+			}
+		},
+		"signup_date": {
+			"$date": "2022-01-11T16:23:07.234Z"
+		},
+		"last_login": {
+			"$date": "2023-12-17T11:07:22.654Z"
+		},
+		"balance": {
+			"amount": 500,
+			"last_topup": null
+		}
+	}
+]
